@@ -11,6 +11,7 @@ import Header from "./components/layout/Header";
 import Todos from "./components/Todos";
 import AddTodo from "./components/AddTodo";
 import axios from "axios";
+import krx from "krx-stock-api";
 
 export default {
   name: "App",
@@ -37,9 +38,10 @@ export default {
     },
   },
   async created() {
-    const res = await axios.get(
-      "http://asp1.krx.co.kr/servlet/krx.asp.XMLSiseEng?code=005930"
-    );
+    // const res = await axios.get(
+    //   "http://asp1.krx.co.kr/servlet/krx.asp.XMLSiseEng?code=005930"
+    // );
+    const res = await krx.getStock("005930");
     console.log(res);
     // this.todos = data;
   },
